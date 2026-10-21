@@ -1,0 +1,21 @@
+# Model files: too big, and never upload them
+*.gguf
+*.safetensors
+*.bin
+*.pt
+
+# Poisoned templates and downloaded models stay on your machines only
+data/poisoned/
+data/models/
+data/raw/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Secrets and system junk
+.env
+Thumbs.db
+.DS_Store
