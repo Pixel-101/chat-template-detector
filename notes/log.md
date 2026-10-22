@@ -1,4 +1,11 @@
-\# Thesis log
+## 2026-10-22
+- Server finished: no sleep, key-only SSH, tools installed, repo cloned with a deploy key, Python venv, Ollama.
+- Models: qwen3:4b-instruct and llama3.2:3b work. Speeds noted in server-setup.md.
+- Surprise: plain qwen3:4b is a thinking-only model; --think=false did not help. Switched to the instruct version.
+- Thesis observation 1: Qwen3 turns thinking on and off inside its chat template, so official templates contain legitimate if-logic.
+- Thesis observation 2: same question = 20 tokens on Qwen, 37 on Llama. Llama's template adds its own system message (dates). Official templates also insert hidden text.
+- So the detector rule cannot be "template adds hidden text". It must be "hidden text that depends on what the user typed".
+- Methods note: record exact model tags and IDs (ollama list) for reproducibility.\# Thesis log
 
 
 

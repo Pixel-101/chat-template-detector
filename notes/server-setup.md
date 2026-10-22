@@ -64,3 +64,17 @@
 
 \- Hotspot test before December (v14)
 
+
+## Models
+NAME                 ID              SIZE      MODIFIED       
+llama3.2:3b          a80c4f17acd5    2.0 GB    3 minutes ago     
+qwen3:4b-instruct    0edcdef34593    2.5 GB    11 minutes ago    
+qwen3:4b             359d7dd4bcda    2.5 GB    21 minutes ago    
+
+
+## Model speed (CPU, measured 22 Oct 2026)
+- qwen3:4b-instruct: ~37 tokens/s reading the prompt, ~10 tokens/s writing
+- llama3.2:3b: ~53 tokens/s reading the prompt
+- First run loads the model (~4 s); later runs skip this for a few minutes
+- Ollama caches repeated prompts, so first-run timings are the honest ones
+- Plain qwen3:4b is a thinking-only model: do not use it for experiments
