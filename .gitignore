@@ -18,4 +18,4 @@ __pycache__/
 # Secrets and system junk
 .env
 Thumbs.db
-.DS_Store
+.DS_Store*~
