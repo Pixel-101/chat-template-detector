@@ -1,75 +1,42 @@
-# SentinelOne User & Role Export
+# Detecting Backdoored Chat Templates in Open-Weight Language Models
 
-Pulls every user from the SentinelOne Management API and flattens each
-person's role/scope assignments into one row per user-per-role-per-scope —
-the same shape as the console's manual "Users" CSV export, but scriptable
-and repeatable.
+**A Replication and a Behaviour-Based Detector** (working title)
 
-This was built to support the CRDC SentinelOne authorization matrix: a
-document showing who has what access, where, so it can be reviewed rather
-than checked account-by-account in the console.
+Master's thesis, M.Sc. Enterprise and IT Security, Hochschule Offenburg
+Author: Gaurav
+Supervisor: Prof. Dr. Andreas Schaad
 
-## What it does
+## What this project is about
 
-- Calls `GET /web/api/v2.1/users`, paging through all results automatically
-- For each user, unpacks their `scopeRoles` into separate rows (one account
-  can hold different roles at different scopes — e.g. Admin account-wide,
-  Viewer on a specific site)
-- Cleans up names where possible: `firstname.lastname@bilfinger.com` becomes
-  `Firstname Lastname`. Service/admin accounts identified only by an internal
-  ID number (e.g. `adm.idm123456@...`) are left as-is — those still need a
-  manual name lookup, there's no way to derive a real name from an ID alone
-- Writes everything out to a CSV
+Open-weight language models are shared as GGUF files on platforms such as Hugging Face. Each file bundles the model weights with a chat template: a small Jinja2 program that formats every message before the model sees it. Fogel et al. ([arXiv 2602.04653](https://arxiv.org/abs/2602.04653), CCS 2026) show that an attacker can hide a backdoor in this template without touching the weights. When a trigger phrase appears, the template silently adds instructions; otherwise the model behaves normally. Existing scans on Hugging Face did not detect such files.
 
-## Before you run it, you need
+The authors note that simple defences have clear limits: comparing against the official template flags every legitimate customisation, and pattern-based scanners can be evaded by obfuscation.
 
-1. **Python 3** installed (`python --version` to check)
-2. The `requests` library: `pip install requests`
-3. **Your own SentinelOne API token.** Generate one from your own account:
-   SentinelOne console → Settings → Users → your account → Generate API
-   Token. It's shown once only — copy it immediately.
+**Research question:** Can a poisoned chat template be detected by analysing what it does rather than what it looks like, and does this hold against obfuscation, with few false alarms on real templates?
 
-## Running it
+## The three parts of the thesis
 
-Set your token as an environment variable in your terminal before running —
-do not paste a real token into the script itself:
+1. **State of the art:** backdoors in language models, prompt injection, attacks through chat templates, model supply chain security, and existing detection approaches.
+2. **Replication:** reproducing the paper's main results on small open-weight models (Qwen3-4B-Instruct, Llama-3.2-3B), with clean and poisoned templates, with and without the trigger.
+3. **Detector:** static analysis that follows how user text flows through the template, combined with dynamic testing that renders the template with and without candidate triggers and compares the output. Evaluated against the paper's baselines, on real templates and on obfuscated variants.
 
-**Command Prompt:**
-```
-set S1_API_TOKEN=your-token-here
-```
+## Repository structure
 
-**PowerShell:**
-```
-$env:S1_API_TOKEN = "your-token-here"
-```
-
-Then, in that same terminal window:
-```
-python S1_users.py
-```
-
-**Important:** the script currently falls back to the placeholder text
-`"insert personal api token here"` if `S1_API_TOKEN` isn't set — it will
-not stop and warn you. If you forget to set the environment variable
-first, it'll run anyway and fail with a confusing authentication error
-from the API instead of a clear message. If that happens, it almost
-always means the environment variable wasn't set in that terminal session
-— set it and run the script again in the same window.
-
-It'll print progress per page as it pulls, then write the result to the
-path set in `OUTPUT_PATH` near the top of the script (defaults to
-`C:\Temp\s1_users_export.csv` — change this to wherever you want it, and
-make sure that folder exists first).
+| Folder | Contents |
+|---|---|
+| `notes/` | Research log (`log.md`), server setup, reading notes |
+| `code/` | Replication scripts and the detector |
+| `data/` | Template datasets (poisoned templates are kept local only, see below) |
+| `results/` | Experiment outputs and measurements |
+| `thesis/` | LaTeX source and references (written in Overleaf, backed up here) |
 
 
-## Output
+The research log in `notes/log.md` has day-by-day progress.
 
-A CSV with one row per user-per-role-per-scope, columns: Full name, Email,
-Source, Verification Status, 2FA status, Allowed to generate API token,
-Last connected, Created at, Role, Account, Site, Scope level.
+## Handling of attack material
 
-This output file contains real names and email addresses — treat it as you
-would any export of personal data. Don't commit output CSVs to this repo
-(see `.gitignore`).
+Poisoned chat templates and model files are never committed to this repository. They are excluded by `.gitignore` and stay on the author's own machines. No poisoned model is uploaded to any public platform. Untrusted templates are rendered only in Jinja2's sandboxed environment.
 
+## Main reference
+
+A. Fogel, O. Hofman, E. Cohen, R. Vainshtein. *Inference-Time Backdoors via Chat Templates: From LLM Supply Chains to Agentic System Compromise.* ACM CCS 2026. [arXiv 2602.04653](https://arxiv.org/abs/2602.04653)
