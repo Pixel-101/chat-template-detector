@@ -3,12 +3,12 @@
 **A Replication and a Behaviour-Based Detector** (working title)
 
 Master's thesis, M.Sc. Enterprise and IT Security, Hochschule Offenburg
-Author: Gaurav
+Author: Gaurav Gogisetty
 Supervisor: Prof. Dr. Andreas Schaad
 
 ## What this project is about
 
-Open-weight language models are shared as GGUF files on platforms such as Hugging Face. Each file bundles the model weights with a chat template: a small Jinja2 program that formats every message before the model sees it. Fogel et al. ([arXiv 2602.04653](https://arxiv.org/abs/2602.04653), CCS 2026) show that an attacker can hide a backdoor in this template without touching the weights. When a trigger phrase appears, the template silently adds instructions; otherwise the model behaves normally. Existing scans on Hugging Face did not detect such files.
+Open-weight language models are shared as GGUF files on platforms such as Hugging Face. Each file bundles the model weights with a chat template: a small Jinja2 program that formats every message before the model sees it. Fogel et al. ([arXiv 2602.04653](https://arxiv.org/abs/2602.04653), ACM CCS 2026) show that an attacker can hide a backdoor in this template without touching the weights. When a trigger phrase appears, the template silently adds instructions; otherwise the model behaves normally. Existing scans on Hugging Face did not detect such files.
 
 The authors note that simple defences have clear limits: comparing against the official template flags every legitimate customisation, and pattern-based scanners can be evaded by obfuscation.
 
@@ -35,7 +35,7 @@ The research log in `notes/log.md` has day-by-day progress.
 
 ## Handling of attack material
 
-Poisoned chat templates and model files are never committed to this repository. They are excluded by `.gitignore` and stay on the author's own machines. No poisoned model is uploaded to any public platform. Untrusted templates are rendered only in Jinja2's sandboxed environment.
+Poisoned chat templates and model files are never committed to this repository. They are excluded by `.gitignore` and stay on my own machines. No poisoned model is uploaded to any public platform. Untrusted templates are rendered only in Jinja2's sandboxed environment.
 
 ## Main reference
 
