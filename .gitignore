@@ -19,3 +19,9 @@ __pycache__/
 .env
 Thumbs.db
 .DS_Store*~
+
+# Added with the scanners: attack material and fetched corpora stay local
+data/templates-poisoned/
+data/demo-gguf/
+data/external/
+.pytest_cache/

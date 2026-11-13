@@ -25,9 +25,11 @@ The authors note that simple defences have clear limits: comparing against the o
 | Folder | Contents |
 |---|---|
 | `notes/` | Research log (`log.md`), server setup, reading notes |
-| `code/` | Replication scripts and the detector |
+| `code/` | Replication scripts and the detector (`code/ctd/`, tests in `code/tests/`) |
 | `data/` | Template datasets (poisoned templates are kept local only, see below) |
 | `results/` | Experiment outputs and measurements |
+| `docs/` | Study guide PDF on taint analysis and the scanners (`build_pdf.py` rebuilds it) |
+| `scripts/` | Corpus download and demo-asset helpers |
 | `thesis/` | LaTeX source and references (written in Overleaf, backed up here) |
 
 
@@ -40,3 +42,15 @@ Poisoned chat templates and model files are never committed to this repository. 
 ## Main reference
 
 A. Fogel, O. Hofman, E. Cohen, R. Vainshtein. *Inference-Time Backdoors via Chat Templates: From LLM Supply Chains to Agentic System Compromise.* ACM CCS 2026. [arXiv 2602.04653](https://arxiv.org/abs/2602.04653)
+
+## Running the detector
+
+```
+pip install jinja2 gguf numpy pytest matplotlib reportlab
+bash scripts/fetch_corpora.sh
+cd code && python -m pytest tests -q
+python -m ctd scan PATH [--mode static|dynamic|both]
+python -m ctd demo
+```
+
+The demo needs the poisoned example templates in `data/templates-poisoned/`, which are kept local (see above). Restart notes: `notes/HANDOFF.md`.
