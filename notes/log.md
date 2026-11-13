@@ -15,3 +15,8 @@
 
 \- Installed Zotero, saved the two main papers.
 
+
+\## 2026-11-13
+\- Built static (taint) and dynamic (tripwire) scanners, obfuscation catalogue, demo, tests and a study PDF (docs/).
+\- Eval: static 407/440, dynamic 440/440, combined 440/440; 0 of 87 benign templates flagged. See results/summary.md and notes/HANDOFF.md.
+\- Poisoned demo templates are NOT committed (data/templates-poisoned/ is git-ignored). Regenerate or copy them locally; see notes/HANDOFF.md.

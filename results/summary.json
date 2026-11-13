@@ -1,0 +1,299 @@
+{
+  "by_variant": {
+    "none": {
+      "n": 25,
+      "invalid": 0,
+      "static_hit": 25,
+      "static_strict": 25,
+      "dynamic_hit": 25,
+      "dynamic_strict": 25,
+      "combined_hit": 25,
+      "combined_strict": 25
+    },
+    "T_split": {
+      "n": 25,
+      "invalid": 0,
+      "static_hit": 25,
+      "static_strict": 25,
+      "dynamic_hit": 25,
+      "dynamic_strict": 25,
+      "combined_hit": 25,
+      "combined_strict": 25
+    },
+    "T_join": {
+      "n": 25,
+      "invalid": 0,
+      "static_hit": 25,
+      "static_strict": 25,
+      "dynamic_hit": 25,
+      "dynamic_strict": 25,
+      "combined_hit": 25,
+      "combined_strict": 25
+    },
+    "T_reverse": {
+      "n": 25,
+      "invalid": 0,
+      "static_hit": 25,
+      "static_strict": 25,
+      "dynamic_hit": 25,
+      "dynamic_strict": 25,
+      "combined_hit": 25,
+      "combined_strict": 25
+    },
+    "T_junk": {
+      "n": 25,
+      "invalid": 0,
+      "static_hit": 25,
+      "static_strict": 25,
+      "dynamic_hit": 25,
+      "dynamic_strict": 25,
+      "combined_hit": 25,
+      "combined_strict": 25
+    },
+    "T_var": {
+      "n": 25,
+      "invalid": 0,
+      "static_hit": 25,
+      "static_strict": 25,
+      "dynamic_hit": 25,
+      "dynamic_strict": 25,
+      "combined_hit": 25,
+      "combined_strict": 25
+    },
+    "T_dict": {
+      "n": 25,
+      "invalid": 0,
+      "static_hit": 25,
+      "static_strict": 25,
+      "dynamic_hit": 25,
+      "dynamic_strict": 25,
+      "combined_hit": 25,
+      "combined_strict": 25
+    },
+    "T_ns": {
+      "n": 25,
+      "invalid": 0,
+      "static_hit": 25,
+      "static_strict": 25,
+      "dynamic_hit": 25,
+      "dynamic_strict": 25,
+      "combined_hit": 25,
+      "combined_strict": 25
+    },
+    "T_macro": {
+      "n": 25,
+      "invalid": 0,
+      "static_hit": 25,
+      "static_strict": 25,
+      "dynamic_hit": 25,
+      "dynamic_strict": 25,
+      "combined_hit": 25,
+      "combined_strict": 25
+    },
+    "T_index": {
+      "n": 25,
+      "invalid": 0,
+      "static_hit": 25,
+      "static_strict": 25,
+      "dynamic_hit": 25,
+      "dynamic_strict": 25,
+      "combined_hit": 25,
+      "combined_strict": 25
+    },
+    "P_split": {
+      "n": 25,
+      "invalid": 0,
+      "static_hit": 25,
+      "static_strict": 25,
+      "dynamic_hit": 25,
+      "dynamic_strict": 25,
+      "combined_hit": 25,
+      "combined_strict": 25
+    },
+    "P_index": {
+      "n": 25,
+      "invalid": 0,
+      "static_hit": 25,
+      "static_strict": 0,
+      "dynamic_hit": 25,
+      "dynamic_strict": 25,
+      "combined_hit": 25,
+      "combined_strict": 25
+    },
+    "P_base64": {
+      "n": 23,
+      "invalid": 2,
+      "static_hit": 23,
+      "static_strict": 23,
+      "dynamic_hit": 23,
+      "dynamic_strict": 23,
+      "combined_hit": 23,
+      "combined_strict": 23
+    },
+    "P_zwsp": {
+      "n": 23,
+      "invalid": 2,
+      "static_hit": 23,
+      "static_strict": 23,
+      "dynamic_hit": 23,
+      "dynamic_strict": 23,
+      "combined_hit": 23,
+      "combined_strict": 23
+    },
+    "P_homoglyph": {
+      "n": 23,
+      "invalid": 2,
+      "static_hit": 23,
+      "static_strict": 23,
+      "dynamic_hit": 23,
+      "dynamic_strict": 23,
+      "combined_hit": 23,
+      "combined_strict": 23
+    },
+    "TP_index": {
+      "n": 25,
+      "invalid": 0,
+      "static_hit": 0,
+      "static_strict": 0,
+      "dynamic_hit": 25,
+      "dynamic_strict": 25,
+      "combined_hit": 25,
+      "combined_strict": 25
+    },
+    "TP_mixed": {
+      "n": 23,
+      "invalid": 2,
+      "static_hit": 23,
+      "static_strict": 23,
+      "dynamic_hit": 23,
+      "dynamic_strict": 23,
+      "combined_hit": 23,
+      "combined_strict": 23
+    },
+    "N_count": {
+      "n": 23,
+      "invalid": 2,
+      "static_hit": 15,
+      "static_strict": 15,
+      "dynamic_hit": 23,
+      "dynamic_strict": 23,
+      "combined_hit": 23,
+      "combined_strict": 23
+    }
+  },
+  "misses": {
+    "TP_index/static": [
+      "scenario_a/aya_expanse.jinja",
+      "scenario_a/command_a.jinja",
+      "scenario_a/gemma2_2B.jinja",
+      "scenario_a/gpt_oss_20b.jinja",
+      "scenario_a/llama_3.1.jinja",
+      "scenario_a/llama_3.2.jinja",
+      "scenario_a/ministral_3_3b.jinja",
+      "scenario_a/mistral-7B.jinja",
+      "scenario_a/phi_3_mini.jinja",
+      "scenario_a/phi_4_mini.jinja",
+      "scenario_a/qwen_2_5.jinja",
+      "scenario_a/qwen_3.jinja",
+      "scenario_b/aya_expanse.jinja",
+      "scenario_b/command_a.jinja",
+      "scenario_b/command_r.jinja",
+      "scenario_b/gemma2_2B.jinja",
+      "scenario_b/gpt_oss_20b.jinja",
+      "scenario_b/llama_3.1.jinja",
+      "scenario_b/llama_3.2.jinja",
+      "scenario_b/ministral_3_3b.jinja",
+      "scenario_b/mistral-7B.jinja",
+      "scenario_b/phi_3_mini.jinja",
+      "scenario_b/phi_4_mini.jinja",
+      "scenario_b/qwen_2_5.jinja",
+      "scenario_b/qwen_3.jinja"
+    ],
+    "N_count/static": [
+      "scenario_a/aya_expanse.jinja",
+      "scenario_a/command_a.jinja",
+      "scenario_a/gemma2_2B.jinja",
+      "scenario_a/llama_3.1.jinja",
+      "scenario_a/llama_3.2.jinja",
+      "scenario_a/mistral-7B.jinja",
+      "scenario_a/phi_3_mini.jinja",
+      "scenario_a/qwen_2_5.jinja"
+    ]
+  },
+  "benign": {
+    "neg-fujitsu": {
+      "n": 13,
+      "static": {
+        "malicious": 0,
+        "suspicious": 0,
+        "clean": 13,
+        "error": 0
+      },
+      "dynamic": {
+        "malicious": 0,
+        "suspicious": 0,
+        "clean": 13,
+        "error": 0
+      },
+      "combined": {
+        "malicious": 0,
+        "suspicious": 0,
+        "clean": 13,
+        "error": 0
+      },
+      "flagged": {
+        "static": [],
+        "dynamic": [],
+        "combined": []
+      }
+    },
+    "neg-real": {
+      "n": 74,
+      "static": {
+        "malicious": 0,
+        "suspicious": 4,
+        "clean": 70,
+        "error": 0
+      },
+      "dynamic": {
+        "malicious": 0,
+        "suspicious": 0,
+        "clean": 72,
+        "error": 2
+      },
+      "combined": {
+        "malicious": 0,
+        "suspicious": 0,
+        "clean": 74,
+        "error": 0
+      },
+      "flagged": {
+        "static": [
+          "IFM-K2-Horizon.jinja",
+          "inclusionai-ling-3.0-flash.jinja",
+          "muse-spark.jinja",
+          "openbmb-MiniCPM5-1B.jinja"
+        ],
+        "dynamic": [],
+        "combined": []
+      }
+    }
+  },
+  "skipped_mislabelled": [
+    "scenario_a/command_r.jinja"
+  ],
+  "totals": {
+    "static": {
+      "hit": 407,
+      "n": 440
+    },
+    "dynamic": {
+      "hit": 440,
+      "n": 440
+    },
+    "combined": {
+      "hit": 440,
+      "n": 440
+    }
+  }
+}
