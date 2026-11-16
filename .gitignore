@@ -25,3 +25,6 @@ data/templates-poisoned/
 data/demo-gguf/
 data/external/
 .pytest_cache/
+
+# Downloaded Hugging Face templates (re-creatable with code/corpus/fetch_hf_templates.py)
+data/hf-corpus/templates/

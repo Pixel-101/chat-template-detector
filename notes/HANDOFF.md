@@ -29,3 +29,8 @@ Smoke test:  python run_scenario_a.py --model llama32-raw --fujitsu ~/fujitsu --
 Full run:    same without --n (100 questions x 4 conditions). Resumable. Output: results/replication/<model>/ (predictions.jsonl, summary.md, meta.json)
 Scoring is "contains gold answer" by default; --judge MODEL adds a local Ollama judge. The paper used a paid Azure judge, so state this deviation in the thesis.
 Tested only against a fake Ollama server, not yet against real Ollama.
+
+## Real-template scan (S7), added 2026-11-16
+code/corpus/fetch_hf_templates.py downloads chat templates (not weights) of the most-downloaded HF text-generation models. Needs internet: run on the OptiPlex. Untested against the live HF API.
+code/corpus/scan_corpus.py scans a folder, dedupes by hash, writes scan_results.csv and scan_summary.md. Tested on the 74 llama.cpp templates: 72 unique, 0 flagged.
+Every flagged template needs a manual look; report the unique-template count in the thesis.
