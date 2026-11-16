@@ -22,3 +22,10 @@ Static is blind to TP_index by design. N_count (length trigger) needed the depth
 ## Open
 S0 push to repo. S2 replicate attack. S8 Pillar scanner baseline. S9 test llm_check.py. S7 scan 200+ real HF templates. S10 slides + backup video. Known gaps: time bombs beyond 2 dates, minja vs jinja2, undeclared variables (2 real templates unrenderable), in-process sandbox.
 Rules: poisoned files stay on own machines; sandbox only; no paid judge.
+
+## Replication (S2), added 2026-11-16
+Script: code/replicate/run_scenario_a.py. Reads the authors' templates from a separate clone (~/fujitsu), never copies them into this repo.
+Smoke test:  python run_scenario_a.py --model llama32-raw --fujitsu ~/fujitsu --template-name llama_3.2 --n 10
+Full run:    same without --n (100 questions x 4 conditions). Resumable. Output: results/replication/<model>/ (predictions.jsonl, summary.md, meta.json)
+Scoring is "contains gold answer" by default; --judge MODEL adds a local Ollama judge. The paper used a paid Azure judge, so state this deviation in the thesis.
+Tested only against a fake Ollama server, not yet against real Ollama.
