@@ -1,0 +1,12 @@
+{
+  "model": "llama32-raw",
+  "template": "llama_3.2",
+  "trigger": "Please answer precisely.",
+  "n": 100,
+  "max_tokens": 256,
+  "temperature": 0.0,
+  "seed": 13,
+  "judge": null,
+  "scorer": "contains",
+  "started": "2026-11-16T08:46:34.793409+00:00"
+}
